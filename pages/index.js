@@ -1,11 +1,7 @@
-import UserForm from "../components/Form";
+import PageForm from "../components/Page";
 
 export default function Home() {
   return (
-    <div>
-        <div className={`container`}>
-          <UserForm/>
-        </div>
-    </div>
+      <PageForm/>
   );
 };
