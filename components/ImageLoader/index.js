@@ -34,7 +34,7 @@ const ImageLoader = () => {
     }
 
     return (
-        error ? createError() : <ImageComponent type="full" width="500" height="500" />
+        error ? createError() : <ImageComponent type="full"/>
     );
 };
 

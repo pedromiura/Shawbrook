@@ -18,8 +18,7 @@ const ImageComponent = (props) => {
                 loader={myLoader}  //Loader for the image from unsplash
                 src="me.png"
                 alt={image.alt_description} //Image description for impaired users
-                width={props.width}
-                height={props.height}
+                fill
                 priority //Priority loading instead of default lazy loading
                 //onLoadingComplete={setIsSubmitting(false)}   Issue updating button state after image loads
             />

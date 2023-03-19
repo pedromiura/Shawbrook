@@ -1,0 +1,19 @@
+.background {
+    position: relative;
+    width: 90vmin;
+    min-width: 320px;
+    height: 90vmin;
+    min-height: 320px;
+    background: #FFFFFF;
+}
+
+.row {
+    position: relative;
+    height:90%
+}
+
+.image {
+    position: relative;
+    width: 96%;
+    height: 99%;
+}
