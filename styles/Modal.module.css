@@ -1,0 +1,9 @@
+.image{
+    position: relative;
+    height: 20vmin;
+    width: 20vmin;
+}
+
+.input{
+    float: right;
+}
