@@ -14,7 +14,7 @@ function ButtonWithSpinner({
   return (
     <button
       type={type}
-      className={`btn btn-success`}
+      className={`btn btn btn-dark ${className}`}
       disabled={isSubmitting}
       {...props}
     >

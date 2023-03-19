@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope');
+
+* {
+  font-family: 'Manrope';
+}
+
+:root {
+  /*  breakPoints  */
+  /* 75em= 1200px */
+  --bp-largest: 75em;
+  /* 68.75em= 1100px */
+  --bp-large: 68.75em;
+  /* 56.25em= 900px */
+  --bp-medium: 56.25em;
+  /* 37.5em= 600px */
+  --bp-small: 37.5em;
+  /* 31.25em= 500px */
+  --bp-smallest: 31.25em;
+}
+
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div > div {  
+  min-height: 100vh; 
+  height: 100vh;  
+  background-image: url("/background.png");
+  /* height: 100%; */
+  -webkit-background-size: cover;
+  /* background-position: center; */
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+@media only screen and (max-width: 68.75em) {
+  html {
+    font-size: 95%;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 90%;
+  }
+}
+/* 
+@media only screen and (max-width: 37.5em) {
+	html {
+		font-size: 75%;
+	}
+} */
+
+.ReactModal__Overlay{
+  z-index: 1060 !important;
+}

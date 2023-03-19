@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useFormContext } from "../../context/form";
 import { useLoadingContext } from "../../context/loading";
 import ButtonWithSpinner from "../ButtonWithSpinner";
-
+import FormStyle from '@/styles/Form.module.css'
 /* 
 Documentation for integration with react form: https://react-hook-form.com/advanced-usage/  
 */
@@ -22,23 +22,18 @@ const UserForm = (props) => {
     };
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-12 p-3">
-                    <h1>Form</h1>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-12 p-3">
-                    <form onSubmit={handleSubmit(onSubmit)} id="form">
-                        <input {...register("name")} placeholder="Name*" id="name" className="form-control" type="text" required />
-                        <input {...register("surname")} placeholder="Surname*" id="surname" className="form-control" type="text" required />
-                        <select {...register("topic")} defaultValue="" id="topic" className="form-select" required>
+        <div className={`container ${FormStyle.background}`}>
+            <div className={`row justify-content-center ${FormStyle.formRow}`}>
+                <div className="col-7 p-3 align-self-center">
+                    <form onSubmit={handleSubmit(onSubmit)} id="form" className={FormStyle.form}>
+                        <input {...register("name")} placeholder="Name*" id="name" className={`form-control ${FormStyle.input}`} type="text" required />
+                        <input {...register("surname")} placeholder="Surname*" id="surname" className={`form-control ${FormStyle.input}`} type="text" required />
+                        <select {...register("topic")} defaultValue="" id="topic" className={`form-control ${FormStyle.input}`} required>
                             <option value="" disabled hidden> Select your topic*</option>
                             {topics && topics.map((topic) => (<option value={topic} key={topic}>{topic}</option>))}
                         </select>
-                        {selectTopic === 'Other' ? <input {...register("otherTopic")} placeholder="Topic*" id="otherTopic" className="form-control" type="text" required /> : null}
-                        <ButtonWithSpinner text="Submit" isSubmitting={isSubmitting} />
+                        {selectTopic === 'Other' ? <input {...register("otherTopic")} placeholder="Topic*" id="otherTopic" type="text" className={`form-control ${FormStyle.input}`} required /> : null}
+                        <ButtonWithSpinner text="Submit" className={FormStyle.submit}  isSubmitting={isSubmitting} />
                     </form>
                 </div>
             </div>

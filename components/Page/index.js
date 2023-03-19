@@ -4,6 +4,7 @@ import Modal from "../Modal"
 import ImageLoader from "../ImageLoader";
 import Spinner from "../Spinner";
 import ErrorBoundary from '../ErrorBoundary'
+import GridStyle from '@/styles/Grid.module.css'
 
 /* Main component with the form, image and card */
 
@@ -13,27 +14,27 @@ const PageForm = () => {
     const [isOpen, setIsOpen] = useState(false); //State to manage modal
 
     return (
-        <div className="container">
+        <div className="container-fluid">
             {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen}/>}
-            <div className="row">
-                <div className="col-6 p-3">
+            <div className="row align-items-center justify-content-around">
+                <div className="col-lg-auto p-3">
                     <UserForm isComplete={setIsImage} currentKey={key} updateKey={setKey} />
                 </div>
                 {isImage &&
-                    <div className="col-6 p-3">
+                    <div className={`col-lg-auto p-3 ${GridStyle.background}`}>
                         <ErrorBoundary > {/* Built in react feature to deal with exceptions */}
                             <Suspense fallback={<Spinner />}> {/* Built in react feature to manage loading times */}
-                                <div className="row">
-                                    <div className="col-12 p-3">
+                                <div className={`row align-items-center justify-content-center ${GridStyle.row}`}>
+                                    <div className={`col-lg-auto p-3 ${GridStyle.image}`}>
                                         <ImageLoader key={key} /> 
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-6 p-3">
-                                        <button type="button" onClick={() => setKey(key + 1)}>Refuse</button> {/* Button to refresh component and image */}
+                                <div className="row align-items-center justify-content-around">
+                                    <div className="col-auto p-3">
+                                        <button type="button" className="btn btn-success " onClick={() => setKey(key + 1)}>Refuse</button> {/* Button to refresh component and image */}
                                     </div>
-                                    <div className="col-6 p-3">
-                                        <button type="button" onClick={() => setIsOpen(true)}>Accept</button> {/* Built to choose image and open modal */}
+                                    <div className="col-auto p-3">
+                                        <button type="button" className="btn btn-success " onClick={() => setIsOpen(true)}>Accept</button> {/* Built to choose image and open modal */}
                                     </div>
                                 </div>
                             </Suspense>
