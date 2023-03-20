@@ -16,6 +16,10 @@ const ImageLoader = () => {
     const [error, setError] = useState(false); //State to throw error in case of API failure
 
     useEffect(() => {
+        const chooseTopic = () => {
+            return form.topic === "Other" ? form.otherTopic : form.topic //Logic for topic when "other" option is selected
+        }
+
         setImage() //remove current image for visual clarity
         const topic = chooseTopic() //topic chosen by the user
         getPhotos().getPhoto(topic).then((data) => { //New picture from unsplash library
@@ -25,13 +29,9 @@ const ImageLoader = () => {
             setIsSubmitting(false)
             setError(true)
         });
-    }, []);
+    }, [setImage, setIsSubmitting, form]);
 
     const createError = () => { throw new Error(`error`) } //Throw error when API request fails
-
-    const chooseTopic = () => {
-        return form.topic === "Other" ? form.otherTopic : form.topic //Logic for topic when "other" option is selected
-    }
 
     return (
         error ? createError() : <ImageComponent type="full"/>

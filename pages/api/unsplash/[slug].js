@@ -1,6 +1,6 @@
 import { createApi } from 'unsplash-js'
 
-export default async (req, res) => {
+export default unsplash = async (req, res) => {
     /* 
     Documentation for integration with Unsplash: https://unsplash.com/documentation 
     API requests a random picture from unsplash with a specific top
