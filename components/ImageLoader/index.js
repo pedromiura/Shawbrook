@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { getPhotos } from "../../services/unsplash";
 import { useImageContext } from "../../context/image";
 import { useFormContext } from "../../context/form";
-import ImageComponent from "../ImageComponent"
 import { useLoadingContext } from "../../context/loading";
+import ImageComponent from "../ImageComponent"
 
 /* 
 Component to save new image from unsplash to context
