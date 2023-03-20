@@ -33,7 +33,7 @@ const UserForm = (props) => {
                             {topics && topics.map((topic) => (<option value={topic} key={topic}>{topic}</option>))}
                         </select>
                         {selectTopic === 'Other' ? <input {...register("otherTopic")} placeholder="Topic*" id="otherTopic" type="text" className={`form-control ${FormStyle.input}`} required /> : null}
-                        <ButtonWithSpinner text="Submit" className={FormStyle.submit}  isSubmitting={isSubmitting} />
+                        <ButtonWithSpinner text="Submit" id="submit" className={FormStyle.submit}  isSubmitting={isSubmitting} />
                     </form>
                 </div>
             </div>

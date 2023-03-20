@@ -23,15 +23,15 @@ export default function MyModal(props) {
         <Suspense fallback={<Spinner />}> {/* Built in react feature to manage loading times */}
           <div className={`container`}>
             <div className={`row justify-content-around`}>
-              <div className={`col-xs-auto p-3 ${ModalStyle.image}`}>
+              <div className={`col-xs-auto p-3 ${ModalStyle.image}`} id="modalImage">
                 <ImageComponent type="thumb" />
               </div>
               <div className="col-md-auto p-3">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value={form.name} className={ModalStyle.input} readOnly/>
+                <label htmlFor="modalName">Name:</label>
+                <input type="text" id="modalName" name="name" value={form.name} className={ModalStyle.input} readOnly/>
                 <p/>
-                <label for="surname">Surname:</label>
-                <input type="text" id="surname" name="surname" value={form.surname} className={ModalStyle.input} readOnly/>
+                <label htmlFor="modalSurname">Surname:</label>
+                <input type="text" id="modalSurname" name="surname" value={form.surname} className={ModalStyle.input} readOnly/>
               </div>
             </div>
           </div>

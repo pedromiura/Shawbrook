@@ -4,6 +4,9 @@ Task board Jira: https://pedromiura.atlassian.net/jira/software/c/projects/SHAW/
 
 Figma designs: In the public folder.
 
+To run the project create .env.local file and add UNSPLASH_ACCESS_KEY and UNSPLASH_ACCESS_SecretKEY from unsplash.
+
+
 Main challenges:
 
 -Testing components with cypress that have context

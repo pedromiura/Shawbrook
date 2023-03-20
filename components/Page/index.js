@@ -13,6 +13,14 @@ const PageForm = () => {
     const [key, setKey] = useState(0); //Key used to refresh component and image
     const [isOpen, setIsOpen] = useState(false); //State to manage modal
 
+    const openModal = () => {
+        setIsOpen(true) //Updates modal state to open the modal
+    }
+
+    const reloadImage = () => {
+        setKey(key + 1) //Updates the Image component key to remount component
+    }
+
     return (
         <div className="container-fluid">
             {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen}/>}
@@ -31,10 +39,10 @@ const PageForm = () => {
                                 </div>
                                 <div className="row align-items-center justify-content-around">
                                     <div className="col-auto p-3">
-                                        <button type="button" className="btn btn-success " onClick={() => setKey(key + 1)}>Refuse</button> {/* Button to refresh component and image */}
+                                        <button type="button" id="refuseButton" className="btn btn-success " onClick={reloadImage}>Refuse</button>
                                     </div>
                                     <div className="col-auto p-3">
-                                        <button type="button" className="btn btn-success " onClick={() => setIsOpen(true)}>Accept</button> {/* Built to choose image and open modal */}
+                                        <button type="button" id="acceptButton" className="btn btn-success " onClick={openModal}>Accept</button>
                                     </div>
                                 </div>
                             </Suspense>
