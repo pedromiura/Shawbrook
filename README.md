@@ -1,38 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Project requested by Shawbrook for the 2nd stage interview.
 
-## Getting Started
+Task board Jira: https://pedromiura.atlassian.net/jira/software/c/projects/SHAW/boards/1/backlog?view=detail&selectedIssue=SHAW-7&issueLimit=100
 
-First, run the development server:
+Figma designs: In the public folder.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+To run the project create .env.local file and add UNSPLASH_ACCESS_KEY and UNSPLASH_ACCESS_SecretKEY from unsplash.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Main challenges:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+-Testing components with cypress that have context
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+-Avoiding prop drilling. Options considered: component composition/redux/context. Solution: context
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+-Reloading image. Initial solution: remounting component by updating key. Solution: updating image context.
 
-## Learn More
+-Dynamically updating the topic field on the form. Options considered: UseEffect listener/form watch function. Solution: watch function.
 
-To learn more about Next.js, take a look at the following resources:
+-Adding spinning effect to submit while image loads. Issue: There is a discrepancy between the URL being received and the image being loaded, it would be necessary to manage a context that starts on the form and ends on the image component by NextJS with the option to add a function onLoadCompleted but it's not possible to update the state in two different components at the same time.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-Loading images when deployed. Solution: updating config
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-Using blur image with the Image component from Nextjs. Solution converting the unsplash blur url to base64 with external library (not implemented).
